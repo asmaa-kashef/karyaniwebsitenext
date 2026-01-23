@@ -1,0 +1,83 @@
+﻿/* VillaServices.module.css */
+
+.container {
+    background-color: #f0f0f0;
+    font-family: system-ui;
+    padding: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:200px;
+}
+.contentWrapper {
+    max-width: 900px;
+    text-align: left;
+}
+
+.mainTitle {
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-size: 2rem;
+    color: black;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.highlight {
+    
+    color: #333;
+    padding: 0 5px;
+}
+
+.introText {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #000;
+}
+
+.serviceItem {
+    margin-bottom: 25px;
+    max-width: 900px;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: black;
+    text-align: justify;
+    font-weight: 500;
+}
+
+/* VillaServices.module.css */
+
+.mainTitle {
+    font-size: 32px;
+    font-weight: 800;
+    color: #000;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.buttonWrapper {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* لمركزة العناصر أفقياً */
+    justify-content: center; /* لمركزة العناصر عمودياً */
+    color: white;
+    text-align: center;
+    margin:auto;
+    gap: 20px; /* مسافة بين الزر والعنوان والفقرات */
+
+}
+
+.button {
+    background-color: #ff914d;
+    color: #fff;
+    padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 30px);
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+}
+.paragraph{
+    text-align:justify;
+}

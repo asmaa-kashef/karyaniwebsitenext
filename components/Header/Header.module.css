@@ -1,0 +1,233 @@
+﻿/* Header.module.css */
+
+.header {
+    position: absolute; /* يجعله يطوف فوق البانر */
+    top: 0px; /* يبدأ بعد الـ topBar مباشرة */
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* لضمان ظهوره فوق الصور */
+    background-color: transparent; /* خلفية شفافة */
+}
+.rtl {
+    direction: rtl;
+}
+
+.topBar {
+    background-color: orange;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+   
+}
+    .topBar p {
+        font-family: system-ui;
+        font-weight:600;
+    }
+.middle {
+    display:flex;
+    gap:5px;
+    align-items:center;
+  }
+.left {
+    display: flex;
+    flex-direction: column; /* يخلي كل p تحت بعض */
+    gap: 4px; /* مسافة بسيطة بين البريد والهاتف */
+}
+.right {
+    background-color: #545454;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    position: relative; /* مهم للdropdown */
+    
+}
+.dropdown {
+    position: absolute;
+    top: 100%; /* تحت الزر مباشرة */
+    right: 0;
+    background: white;
+    color: black;
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width:100%;
+    box-shadow:0 2px 5px rgba(0,0,0,0.2);
+    text-align:center;
+    font-weight:600;
+}
+
+    .dropdown li {
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+        .dropdown li:hover {
+            background-color: #f0f0f0;
+        }
+.contactItem {
+    display: flex;
+    align-items: center; /* يجعل الأيقونة والنص في نفس المستوى عموديًا */
+    gap: 6px; /* مسافة بين الأيقونة والنص */
+    margin: 0; /* تلغي أي margin افتراضي لل p */
+}
+
+
+.container {
+    width: 70%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #545454;
+    height: auto;
+    border: 70px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* ظل ليعطي إحساس العمق */
+    border-radius: 0 0 15px 15px;
+    font-weight: 600;
+    font-size: large;
+    flex-direction: column;
+    overflow: hidden;
+  
+ 
+}
+.logonav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* يرمي اللوجو في طرف والزرار في الطرف التاني */
+    align-items: center;
+    width: 100%; /* ضروري جداً عشان يملأ عرض الـ container */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.navDesktop {
+    display: none;
+}
+
+    .navDesktop a {
+        margin-left: 1.5rem;
+        text-decoration: none;
+        color: white;
+        transition: color 0.2s;
+        font-family: system-ui;
+        margin-top: 1.5rem;
+       
+    }
+
+        .navDesktop a:hover {
+            color: #2563eb; /* أزرق عند hover */
+}
+
+.menuButton {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color:orange;
+   font-size:28px;
+   line-height:17px;
+}
+
+.navMobile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    /* اللون الذي اخترتيه للخلفية */
+    background-color: #25262c;
+    /* إعدادات الـ Border السميك */
+    border: 1px solid aliceblue; /* يمكنك زيادة الـ 4px لو أردتيه أسمك */
+ 
+}
+
+    .navMobile a {
+        display: block;
+        padding: 15px 20px;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 600;
+        /* الخطوط الفاصلة الداخلية: جعلناها نفس اللون والسمك */
+        border-bottom: 1px solid aliceblue;
+        text-align: left;
+    }
+
+        /* تأثير عند الوقوف بالماوس أو الضغط */
+        .navMobile a:hover {
+            background-color: rgba(255, 255, 255, 0.05); /* إضاءة خفيفة جداً */
+        }
+        /* لإلغاء الخط الفاصل لآخر عنصر في القائمة حتى لا يزدوج مع الإطار الخارجي */
+        .navMobile a:last-child {
+            border-bottom: none;
+        }
+/* Responsive */
+@media(min-width: 768px) {
+    .navDesktop {
+        display: flex;
+    }
+
+    .menuButton {
+        display: none;
+    }
+
+    .navMobile {
+        display: none;
+    }
+}
+@media (max-width: 500px) {
+    .topBar {
+        flex-direction: column; /* كل div تحت التاني */
+        align-items: center; /* يبدأ من اليسار */
+        /* زيادة padding عشان يكون في height أكبر */
+        gap: 10px; /* مسافة بين الـ divs */
+        height: 150px;
+    }
+    .container {
+       width:100%;
+     
+    }
+        .middle {
+        margin-top: 5px; /* مسافة بسيطة من الـ left */
+    }
+
+    .right {
+        margin-top: 5px; /* مسافة بسيطة من الـ middle */
+    }
+}
+/* التنسيقات الخاصة بالشاشات المتوسطة (بين 755px و 1139px) */
+@media screen and (min-width: 768px) and (max-width: 1139px) {
+
+    .container {
+        width: 90%; /* تكبير العرض قليلاً ليناسب الشاشات المتوسطة */
+        height: 120px; /* تقليل الارتفاع ليناسب المساحة */
+        padding: 0 1.5rem;
+    }
+
+    .navDesktop a {
+        margin-left: 1rem; /* تقليل المسافات بين الروابط لتجنب الازدحام */
+        font-size: 13px; /* تصغير الخط قليلاً */
+    }
+
+    .logo {
+        font-size: 1.2rem; /* تصغير حجم اللوجو */
+    }
+
+    /* إذا كنتِ تستخدمين البانر، يمكنك تعديل الارتفاع هنا أيضاً */
+    .banner {
+        height: 450px;
+    }
+}

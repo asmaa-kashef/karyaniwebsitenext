@@ -1,0 +1,59 @@
+﻿/* VillaServices.module.css */
+
+.container {
+    background-color: #f0f0f0; /* نفس لون الخلفية في الصورة */
+    font-family: system-ui;
+    padding: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.contentWrapper {
+    max-width: 900px;
+    text-align: left;
+}
+
+.mainTitle {
+    font-size: 32px;
+    font-weight: 800;
+    color: #000;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.highlight {
+    
+    color: #333;
+    padding: 0 5px;
+}
+
+.introText {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #000;
+    
+}
+
+.serviceItem {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #000;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: justify;
+}
+/* VillaServices.module.css */
+
+.mainTitle {
+    font-size: 32px;
+    font-weight: 800;
+    color: #000;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+
+

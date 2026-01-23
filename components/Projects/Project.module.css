@@ -1,0 +1,226 @@
+﻿/* Container السكشن الرئيسي */
+.projectsSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    font-family: sans-serif;
+}
+
+/* العنوان والنص الخلفي */
+.textWrapper {
+    display: flex;
+    width: 100%;
+    max-width: 850px;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.Wrapper {
+    position: relative;
+}
+
+.bgText {
+    font-size: clamp(40px, 8vw, 64px);
+    color: rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: 800;
+    color: #222;
+    margin-top: -35px; /* تم تقليله لمنع التداخل السيء */
+    position: relative;
+    z-index: 1;
+}
+
+.allProjectsBtn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    background: #ff914d;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(255, 145, 77, 0.3);
+    transition: transform 0.2s;
+}
+
+    .allProjectsBtn:hover {
+        transform: translateY(-2px);
+    }
+
+/* منطقة العرض (السلايدر) */
+.sliderViewport {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+    .sliderViewport::-webkit-scrollbar {
+        display: none;
+    }
+
+.sliderTrack {
+    display: flex;
+}
+
+/* الكارت والـ MediaBox */
+.projectCard {
+    min-width: 100%;
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.mediaBox {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* يحل مشكلة الارتفاع في كل الشاشات */
+    overflow: hidden;
+    border: 5px solid orange;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.video, .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* يضمن ملء المساحة بدون تمطيط */
+    display: block;
+}
+
+/* تفاصيل المشروع */
+.projectInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    text-align: center;
+    max-width: 600px;
+}
+
+.category {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff914d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.projectTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+}
+
+.description {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.btnGroup {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.viewBtn, .quoteBtn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.viewBtn {
+    background: #ff914d;
+    color: #fff;
+    border: none;
+}
+
+.quoteBtn {
+    border: 2px solid #ff914d;
+    color: #ff914d;
+    background: transparent;
+}
+
+.viewBtn:hover {
+    background: #e87e3c;
+}
+
+.quoteBtn:hover {
+    background: #fff5ef;
+}
+
+/* النقاط (Dots) */
+.dotsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.active {
+    background-color: #ff914d;
+    width: 28px;
+    border-radius: 10px;
+}
+
+/* الشاشات الصغيرة (Responsive) */
+@media (max-width: 768px) {
+    .textWrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        gap: 10px;
+    }
+
+    .allProjectsBtn {
+        align-self: flex-start;
+    }
+
+    .title {
+        margin-top: -25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projectTitle {
+        font-size: 20px;
+    }
+
+    .btnGroup {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .viewBtn, .quoteBtn {
+        width: 100%;
+    }
+}

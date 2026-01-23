@@ -1,0 +1,58 @@
+﻿.Partner {
+    background-color: #fff;
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.client {
+    width: 65%;
+    margin: 0 -10%;
+    padding: 30px;
+    border-radius: 20px;
+    background: chocolate;
+    box-shadow: 0 8px 25px rgba(150, 150, 255, 0.7);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height:200px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    flex-wrap:wrap;
+
+}
+.image {
+    height: 100%;
+    border: 4px solid white ;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 25px rgba(150, 150, 255, 0.7);
+    border-radius: 12px;
+}
+.title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 125px;
+  
+    margin-top: 225px;
+    text-align: center;
+}
+
+@media (max-width: 1382px) {
+    .client {
+        height: calc(40vh + (1382px - 100vw) * 0.1);
+        max-height: 70vh; /* حماية من الزيادة */
+        padding-top:10px;
+    }
+
+    .image {
+        height: 50%;
+    }
+}

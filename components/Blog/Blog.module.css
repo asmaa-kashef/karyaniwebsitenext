@@ -1,0 +1,48 @@
+﻿/* FourDivs.module.css */
+
+.Fullcontainer {
+    align-content: center;
+    padding: 20px;
+    background-color:chocolate;
+    height: auto;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    gap: 25px; /* مسافة بين الديفات */
+    justify-content: center;
+    padding: 20px;
+    background-color:chocolate;
+    height: auto;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: 0px auto;
+    align-content: center;
+}
+
+.box {
+    width: 450px;
+    padding: 30px;
+    background-color: white;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.3s;
+    height: 285px;
+    box-shadow: rgba(150, 150, 255, 0.7) 0px 8px 25px;
+}
+
+    .box:hover {
+        transform: scale(1.1); /* تأثير عند المرور بالفأرة */
+    }
+
+.title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+   
+    text-align: center;
+}

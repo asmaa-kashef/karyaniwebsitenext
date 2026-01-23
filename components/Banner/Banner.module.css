@@ -1,0 +1,51 @@
+﻿.banner {
+    width: 100%;
+    height: 950px; /* لضمان عدم انهيار المساحة قبل تحميل الصورة */
+    position:relative;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.bannerImage {
+    width: 100%;
+    height: 100%; /* ممكن تغيري الheight */
+    object-fit: cover; /* الصورة تغطي كامل البانر */
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    /* الكود السحري للانحناء */
+    clip-path: ellipse(150% 100% at 50% 0%);
+    /* لضمان نعومة الحواف في بعض المتصفحات */
+    -webkit-clip-path: ellipse(150% 100% at 50% 0%);
+    transition: opacity 0.8s ease-in-out;
+}
+.buttonWrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* لمركزة العناصر أفقياً */
+    justify-content: center; /* لمركزة العناصر عمودياً */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    gap: 20px; /* مسافة بين الزر والعنوان والفقرات */
+    margin-top: 140px;
+}
+    .buttonWrapper h1,
+    .buttonWrapper p{
+        font-size: clamp(20px, 6vw, 48px);
+        font-weight: bold;
+        line-height: 1.4em;
+    }
+
+.button {
+    background-color: #ff914d;
+    color: #fff;
+    padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 30px);
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+}
+

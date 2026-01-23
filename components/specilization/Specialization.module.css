@@ -1,0 +1,160 @@
+﻿.section {
+    padding: 80px 0;
+    background-color: #ffffff;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color:#F9FAFB;
+    margin-top:60px;
+}
+
+.title {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #222;
+    text-align: center;
+    font-weight: 700; /* يجعل الخط غامق */
+    font-size: 2rem; /* حجم الخط كبير */
+    color: #222; /* لون النص داكن */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); /* إضافة ظل خفيف للنص */
+    padding-bottom: 10px; /* مسافة صغيرة تحت النص */
+    z-index: 1; /* طبقة النص فوق أي عناصر أخرى إذا كان هناك تراكب */
+}
+
+    .title span {
+        font-weight: 700; /* يجعل الخط غامق */
+        font-size: 2rem; /* حجم الخط كبير */
+        color: #222; /* لون النص داكن */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); /* إضافة ظل خفيف للنص */
+        position: relative; /* يسمح بإضافة عناصر فوق/تحت النص لو احتجت */
+        display: inline-block; /* يجعل العنصر مثل "كتلة مضغوطة" يمكن تحديد ارتفاعه وعرضه */
+        padding-bottom: 10px; /* مسافة صغيرة تحت النص */
+        z-index: 1; /* طبقة النص فوق أي عناصر أخرى إذا كان هناك تراكب */
+    }
+
+.fullContainer {
+    width: 100%;
+    max-width: 1240px; /* العرض الأقصى لضمان ظهور 3 كروت */
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 20px;
+
+}
+
+.sliderContainer {
+    
+    display: flex;
+    gap: 20px; /* الـ Gap المستخدم في الحسابات */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 30px;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+    width: 100%;
+    -ms-overflow-style: none;
+    
+}
+
+    .sliderContainer::-webkit-scrollbar {
+        display: none;
+    }
+
+.card {
+    /* المعادلة: (100% - مجموع الفجوات) / 3 كروت */
+    /* بما أن لدينا 3 كروت، فهناك فجوتان (20px * 2 = 40px) */
+    flex: 0 0 calc((100% - 40px) / 3);
+    scroll-snap-align: start;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    padding:10px;
+}
+
+
+.imageBox {
+    position: relative;
+    width: 100%;
+    height: 340px;
+}
+
+    .imageBox img {
+        object-fit: cover;
+    }
+
+.content {
+    margin-top:12px;
+    text-align: center;
+}
+    .content h3 {
+        font-weight: 700;
+    }
+    .content h3 p {
+        font-weight: 700;
+        font-size: 2rem;
+        color: #222;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+        z-index: 1;
+    }
+
+    .content p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.6;
+
+    }
+
+/* التابلت: كارتين */
+@media (max-width: 1024px) {
+    .card {
+        flex: 0 0 calc((100% - 20px) / 2);
+    }
+}
+
+/* الموبايل: كارت واحد */
+@media (max-width: 650px) {
+    .card {
+        flex: 0 0 100%;
+    }
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.activeDot {
+    width: 10px;
+    height: 10px;
+    background: #f39c12;
+    border-radius: 50%;
+    transform: scale(1.2);
+}
+.text {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    padding:10px;
+    margin-top: 20px;
+    max-width: 1200px;
+    margin: 20px auto 0;
+    text-align: justify; /* ده المهم */
+    text-justify: inter-word;
+}
