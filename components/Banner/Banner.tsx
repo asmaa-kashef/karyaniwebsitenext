@@ -7,7 +7,7 @@ import styles from "./Banner.module.css"; // CSS للـ Banner
 import Link from 'next/link';
 
 import { useLanguage } from "../../components/LanguageContext"; // عدل المسار حسب مكانك
-
+import Image from "next/image"; 
 
 
 // مصفوفة الصور
@@ -95,44 +95,26 @@ export default function Banner() {
     return (
 
         <div className={styles.banner} dir={language === "ar" ? "rtl" : "ltr"}>
-
-            <img
-
+            <Image
                 src={images[currentIndex]}
-
                 alt={`Banner ${currentIndex + 1}`}
-
+                fill               // ✅ هذا يجعل الصورة تغطي الحاوية
+                style={{ objectFit: 'cover' }} // لتغطية كاملة بدون تشويه
                 className={styles.bannerImage}
-
             />
-
-
-
             <div className={styles.buttonWrapper}>
-
                 <Link href="#offer-form" className={styles.button}>
-
                     {t.cta}
-
                 </Link>
-
-
 
                 <h1>{t.title}</h1>
 
-
-
                 {t.services.map((service, index) => (
-
                     <p key={index}>{service}</p>
-
                 ))}
-
-
-
             </div>
-
         </div>
+
 
     );
 
