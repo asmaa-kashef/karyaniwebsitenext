@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# IDE & Editor
+.vs/
+.vscode/
+
+# Node / Next.js
+node_modules/
+.next/
+build/
+out/
+
+# Large media
+public/videos/*.mp4
+
+# Env / debug
+.env*
+npm-debug.log*
+yarn-debug.log*
