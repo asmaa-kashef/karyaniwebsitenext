@@ -151,7 +151,7 @@ export default function SpecializationSlider() {
                                     src={service.img}
                                     alt={service.title[language]}
                                     fill
-                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                    sizes="(max-width: 768px) 250px, (max-width: 1200px) 200px, 200px"
                                     className={styles.actualImage}
                                     loading="lazy"
                                 />
