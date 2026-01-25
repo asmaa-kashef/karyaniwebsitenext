@@ -1,15 +1,17 @@
 ﻿"use client";
 import { useState, useEffect } from "react";
-import styles from "./Banner.module.css"; // CSS للـ Banner
+import Image from "next/image"; // استيراد مكون الصور من نكست
+import styles from "./Banner.module.css";
 import Link from 'next/link';
-import { useLanguage } from "../../components/LanguageContext"; // عدل المسار حسب مكانك
+import { useLanguage } from "../../components/LanguageContext";
 
 // مصفوفة الصور
 const images = [
     "/images/main-slider/VillaConstruction.webp",
-    "/images/main-slider/cladding.webp", 
-    "/images/main-slider/structure.webp", 
+    "/images/main-slider/cladding.webp",
+    "/images/main-slider/structure.webp",
 ];
+
 const translations = {
     en: {
         title: "Construction Companies in Abu Dhabi",
@@ -32,28 +34,33 @@ const translations = {
 };
 
 export default function Banner() {
-    const { language, setLanguage } = useLanguage();
+    const { language } = useLanguage();
 
-    const t = translations[language]; 
+    const t = translations[language];
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 3000); // كل 3 ثواني الصورة تتغير
+        }, 3000);
 
-        return () => clearInterval(interval); // تنظيف الـ interval عند unmount
+        return () => clearInterval(interval);
     }, []);
 
     return (
         <div className={styles.banner} dir={language === "ar" ? "rtl" : "ltr"}>
-            <img
+            {/* التعديل هنا: استخدام Image مع priority */}
+            <Image
                 src={images[currentIndex]}
                 alt={`Banner ${currentIndex + 1}`}
                 className={styles.bannerImage}
+                fill // ليأخذ حجم الـ container (تأكد أن الـ .banner في الـ CSS لديه position: relative)
+                priority={true} // هذا هو مفتاح تحسين الـ LCP والـ Performance
+                style={{ objectFit: 'cover' }} // للحفاظ على أبعاد الصورة بدون تمطيط
+                sizes="100vw"
             />
 
-            <div className={styles.buttonWrapper}>
+            <div className={styles.buttonWrapper} style={{ zIndex: 1 }}>
                 <Link href="#offer-form" className={styles.button}>
                     {t.cta}
                 </Link>
@@ -63,7 +70,6 @@ export default function Banner() {
                 {t.services.map((service, index) => (
                     <p key={index}>{service}</p>
                 ))}
-
             </div>
         </div>
     );
