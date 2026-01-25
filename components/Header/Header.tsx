@@ -14,12 +14,12 @@ export default function Header() {
     const toggleDropdown = () => setIsOpen(!isOpen);
     const toggleMenu = () => navsetIsOpen(!navisOpen);
 
-    const changeLanguage = (lang: string) => {
+    // ✅ التغيير: تحديد نوع lang
+    const changeLanguage = (lang: "en" | "ar") => {
         setLanguage(lang); // يغير اللغة عالميًا
         setIsOpen(false);  // يغلق dropdown
     };
 
-    // قائمة القوائم مترجمة
     const menuItems = [
         { href: "/", en: "HOME", ar: "الرئيسية" },
         { href: "/about", en: "ABOUT", ar: "من نحن" },
@@ -31,8 +31,6 @@ export default function Header() {
 
     return (
         <header className={`${styles.header} ${language === "ar" ? styles.rtl : ""}`}>
-
-            {/* ===== Top Bar ===== */}
             <div className={`${styles.topBar} ${language === "ar" ? styles.rtl : ""}`}>
                 <div className={styles.left}>
                     <p className={styles.contactItem}>
@@ -55,7 +53,6 @@ export default function Header() {
                 </div>
 
                 <div className={styles.right}>
-                    {/* Language Selector */}
                     <button onClick={toggleDropdown}>
                         {language === "ar" ? "عربي ▼" : "English ▼"}
                     </button>
@@ -69,10 +66,8 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* ===== Main Header ===== */}
             <div className={`${styles.container} ${language === "ar" ? styles.rtl : ""}`}>
                 <div className={styles.logonav}>
-                    {/* Logo */}
                     <Link href="/" className={styles.logo}>
                         <Image
                             src="/images/logo.png"
@@ -83,7 +78,6 @@ export default function Header() {
                         />
                     </Link>
 
-                    {/* Desktop Menu */}
                     <nav className={styles.navDesktop}>
                         {menuItems.map((item, idx) => (
                             <Link key={idx} href={item.href}>
@@ -92,13 +86,11 @@ export default function Header() {
                         ))}
                     </nav>
 
-                    {/* Mobile Menu Button */}
                     <button className={styles.menuButton} onClick={toggleMenu}>
                         {navisOpen ? "✖" : "☰"}
                     </button>
                 </div>
 
-                {/* Mobile Menu */}
                 {navisOpen && (
                     <nav className={styles.navMobile}>
                         {menuItems.map((item, idx) => (
