@@ -3,46 +3,34 @@
 import styles from "./Project.module.css";
 import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { useLanguage } from "../../components/LanguageContext"; // عدل المسار حسب مكانك
+import { useLanguage } from "../../components/LanguageContext";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
-// مصفوفة البيانات محدثة لدعم الفيديو والصور (Poster)
 const projects = [
     {
-        id: 1,
+        id: "proj_1",
         category: { en: "Construction", ar: "البناء" },
         title: { en: "Villa Construction", ar: "بناء الفلل" },
         description: { en: "Luxury villa construction project with modern design", ar: "مشروع بناء فيلا فاخرة بتصميم عصري" },
-        mediaType: "video",
-        videoSrc: "/videos/VillaConstruction.mp4",
+        mediaType: "youtube",
+        videoId: "00_cHMGz5aE", // فيديو اليوتيوب الأول
         poster: "/images/resource/StructureRepair.webp",
     },
     {
-        id: 2,
+        id: "proj_2",
         category: { en: "Structure Repair", ar: "إصلاح الهياكل" },
         title: { en: "Modern Repair", ar: "ترميم حديث" },
         description: { en: "Elegant structural repair for modern buildings", ar: "ترميم أنيق للهياكل الحديثة" },
-        mediaType: "video",
-        videoSrc: "/videos/structurerepair.mp4",
+        mediaType: "youtube",
+        videoId: "Y6ciIuGM06c", // فيديو الـ Shorts الذي أرسلته
         poster: "/images/resource/Interiordesign.webp",
     },
 ];
 
-
 const translations = {
-    en: {
-        title: "Our Best Work",
-        cta: "All Projects →",
-        viewBtn: "View Project",
-        quoteBtn: "Get a Quote",
-        project:"Projects",
-    },
-    ar: {
-        title: "أفضل أعمالنا",
-        cta: " جميع المشاريع",
-        viewBtn: "عرض المشروع",
-        quoteBtn: "احصل على عرض سعر",
-        project:"مشــاريعنـــا"
-    },
+    en: { title: "Our Best Work", cta: "All Projects →", viewBtn: "View Project", quoteBtn: "Get a Quote", project: "Projects" },
+    ar: { title: "أفضل أعمالنا", cta: " جميع المشاريع", viewBtn: "عرض المشروع", quoteBtn: "احصل على عرض سعر", project: "مشــاريعنـــا" },
 };
 
 export default function ProjectsSection() {
@@ -52,7 +40,6 @@ export default function ProjectsSection() {
     const { language } = useLanguage();
     const t = translations[language];
 
-    // 1. دالة التمرير البرمجي - مستقرة بـ useCallback لتجنب أخطاء Render
     const scrollToImage = useCallback((index: number) => {
         if (viewportRef.current) {
             const width = viewportRef.current.offsetWidth;
@@ -63,7 +50,6 @@ export default function ProjectsSection() {
         }
     }, []);
 
-    // 2. دالة مراقبة التمرير اليدوي
     const handleScroll = () => {
         if (viewportRef.current) {
             const { scrollLeft, offsetWidth } = viewportRef.current;
@@ -74,17 +60,13 @@ export default function ProjectsSection() {
         }
     };
 
-    // 3. منطق التحريك التلقائي (Auto-play) - تم إصلاح مصفوفة الـ Dependencies
     useEffect(() => {
         if (isPaused) return;
-
         const interval = setInterval(() => {
             const nextIndex = (activeIndex + 1) % projects.length;
             scrollToImage(nextIndex);
-        }, 3000); // تغيير كل 3 ثوانٍ ليناسب الفيديوهات
-
+        }, 5000);
         return () => clearInterval(interval);
-        // الترتيب هنا يجب أن يظل ثابتاً لمنع الـ Panic Error
     }, [activeIndex, isPaused, scrollToImage]);
 
     return (
@@ -93,12 +75,10 @@ export default function ProjectsSection() {
                 <div className={styles.Wrapper}>
                     <span className={styles.bgText}>{t.project}</span>
                     <h2 className={styles.title}>{t.title}</h2>
-
                 </div>
                 <button className={styles.allProjectsBtn}>{t.cta}</button>
             </div>
 
-            {/* الحاوية التي تعرض الفيديوهات */}
             <div
                 className={styles.sliderViewport}
                 ref={viewportRef}
@@ -110,23 +90,19 @@ export default function ProjectsSection() {
                     {projects.map((project) => (
                         <div key={project.id} className={styles.projectCard}>
                             <div className={styles.mediaBox}>
-                                {project.mediaType === "video" ? (
-                                    <video
-                                        key={project.id}
-                                        className={styles.video}
-                                        muted
-                                        autoPlay
-                                        loop
-                                        playsInline
-                                        poster={project.poster}
-                                        onCanPlay={(e) => e.currentTarget.play()} // إجبار المتصفح على التشغيل بمجرد الجاهزية
-                                    >
-                                        <source src={project.videoSrc} type="video/mp4" />
-                                    </video>
+                                {project.mediaType === "youtube" ? (
+                                    <div className={styles.youtubeWrapper}>
+                                        <LiteYouTubeEmbed
+                                            id={project.videoId}
+                                            title={project.title[language]}
+                                            poster="hqdefault"
+                                            noCookie={true}
+                                        />
+                                    </div>
                                 ) : (
                                     <Image
                                         src={project.poster}
-                                        alt={project.title}
+                                        alt={project.title[language]}
                                         width={800}
                                         height={500}
                                         className={styles.image}
@@ -142,15 +118,12 @@ export default function ProjectsSection() {
                                     <button className={styles.viewBtn}>{t.viewBtn}</button>
                                     <button className={styles.quoteBtn}>{t.quoteBtn}</button>
                                 </div>
-
                             </div>
                         </div>
                     ))}
-                   
                 </div>
             </div>
 
-            {/* نقاط الترقيم التفاعلية */}
             <div className={styles.dotsContainer}>
                 {projects.map((_, i) => (
                     <span
