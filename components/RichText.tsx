@@ -1,5 +1,5 @@
 ﻿import Image from 'next/image'
-import { urlFor } from '@/lib/sanity.client' // اتأكدي من مسار الملف اللي إنتي لسه عاملاه
+import { urlFor } from '../src/lib/sanity.client' // اتأكدي من مسار الملف اللي إنتي لسه عاملاه
 
 export const RichTextComponents = {
     types: {
