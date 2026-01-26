@@ -9,7 +9,9 @@ import Form from "../components/Form/Form";
 import KaryaniChoose from "../components/KaryaniChoose/KaryaniChoose";
 import Maintenance from "../components/Maintenance/Maintenance";
 import Footer from "../components/Footer/Footer";
-export default function Home() {
+import { sanityService } from "../src/lib/sanity.service";
+export default async function Home() {
+    const posts = await sanityService.getAllPosts();
     return (
         <main>
             <Banner />
@@ -21,7 +23,7 @@ export default function Home() {
             <Partner/>
             <SelectedProjects />
             <Maintenance />
-            <Blog/>
+            <Blog posts={posts} />
             <Footer />
             
             

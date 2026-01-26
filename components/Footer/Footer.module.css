@@ -5,8 +5,9 @@
     padding: 40px;
     background-color: #111;
     color: #fff;
-    width:1200px;
-    text-align:justify;
+    width: 1200px;
+    text-align: justify;
+  
 }
 .column p {
     position: relative;
@@ -33,7 +34,7 @@
     justify-content: center;
     align-content: center;
     background-color: #111;
-    height:500px;
+  
     align-items:center;
 }
 /* Responsive */

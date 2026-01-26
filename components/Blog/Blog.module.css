@@ -3,24 +3,28 @@
 .Fullcontainer {
     align-content: center;
     padding: 20px;
-    background-color:chocolate;
+    background-color: chocolate;
     height: auto;
     justify-content: center;
+    min-height: fit-content;
+    height: auto;
 }
 .container {
     display: flex;
     gap: 25px; /* مسافة بين الديفات */
     justify-content: center;
     padding: 20px;
-    background-color:chocolate;
+    background-color: chocolate;
     height: auto;
     flex-wrap: wrap;
-    width: 60%;
+    width: 90%;
+    max-width: 1200px; /* نضع حداً أقصى للشاشات الكبيرة */
     margin: 0px auto;
     align-content: center;
 }
 
 .box {
+
     width: 450px;
     padding: 30px;
     background-color: white;
