@@ -14,7 +14,7 @@ const LanguageContext = createContext<LanguageContextType>({
 // Provider ????? ?????? ????? ?????? ??? component
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     const [language, setLanguage] = useState<"en" | "ar">("en");
-    debugger; // سيقوم المتصفح أو الـ IDE بالتوقف هنا تلقائياً
+   
     return (
         <LanguageContext.Provider value={{ language, setLanguage }}>
             {children}

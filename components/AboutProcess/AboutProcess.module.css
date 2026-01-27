@@ -1,0 +1,76 @@
+﻿.Aboutprocess {
+    background-color: #f0f0f0;
+    padding:0px 40px;
+    height:auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.FullContainer {
+   
+    height: auto;
+    width:60%;
+    gap:15px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.card {
+    flex: 1 1 231px;
+    max-width: 260px;
+    background: rgb(255, 152, 0);
+    border-radius: 18px;
+    padding: 35px 25px;
+    text-align: center;
+    transition: 0.35s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 6px 20px;
+    position: relative;
+    color: rgb(255, 255, 255);
+    transform: translateY(0px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 18px;
+}
+.card:hover{
+    transform:translateY(-6px);
+  
+}
+    .card span {
+        font-size: 36px;
+        font-weight: 700;
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 5px 15px;
+        border-radius: 50%;
+     
+        color: rgb(255, 255, 255);
+    }
+    .card svg {
+        
+        width: 50px; /* العرض */
+        height: 50px; /* الطول */
+        transition: transform 0.3s;
+    }
+    .card title {
+        font-size: 20px;
+        font-weight: 700;
+     }
+    .card p {
+        font-size: 15px;
+        line-height: 1.7em;
+    }
+.text {
+    background-color: #f0f0f0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #222;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+
+    padding: 70px;
+    z-index: 1;
+}
