@@ -1,60 +1,75 @@
-﻿.banner {
+﻿.FullAboutQuestion {
     width: 100%;
-    height: 750px; /* لضمان عدم انهيار المساحة قبل تحميل الصورة */
-    position: relative;
+    padding-top: 50px;
+    background-color: rgb(240, 240, 240);
     display: flex;
     justify-content: center;
     align-items: center;
    
 }
-
-.bannerImage {
-    width: 100%;
-    height: 100%; /* ممكن تغيري الheight */
-    object-fit: cover; /* الصورة تغطي كامل البانر */
-    transition: opacity 0.5s ease-in-out;
-    position: absolute;
-
-    transition: opacity 0.8s ease-in-out;
+.TextQuestion {
+    background-color: rgb(240, 240, 240);
+    text-align: center;
+    padding-top: 110px;
+    font-weight: 700;
+    font-size: 2rem;
+    color: rgb(34, 34, 34);
+    text-shadow: rgba(0, 0, 0, 0.15) 1px 1px 3px;
 }
-.banner::before {
-    content: '';
-    left: 0;
-    top: 0;
+
+.AboutQuestion {
     width: 100%;
-    height: 100%;
-    background: #000;
-    opacity: .70;
-    position: absolute;
-    z-index:1;
-}
-.textWrapper {
+  
     display: flex;
     flex-direction: column;
-    color: white;
-    margin-top: 200px;
-    z-index: 1;
-    width:60%;
-    align-items:flex-start;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
-    .textWrapper h1 {
-        position: relative;
-        display: block;
-        font-size: 48px;
-        color: #fff;
-        line-height: 50px;
-        font-weight: 500;
-        margin-bottom: 35px;
-    }
-    .textWrapper p {
-        position: relative;
-        display: block;
-        font-size: 24px;
-        line-height: 40px;
-        color: #fff;
-        font-weight: 400;
+.Card {
+    background-color: rgb(84, 84, 84);
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 16px;
+    margin-bottom: 20px;
+    padding: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: rgb(255, 255, 255);
+    width: 40%;
+    max-height: 80px; /* ارتفاع افتراضي */
+}
+    /* لما يتم الضغط على الكارد */
+    .Card.expanded {
+        max-height: 200px; /* ارتفاع أكبر لعرض الإجابة */
     }
 
+/* السؤال يبقى ظاهر طول الوقت */
+.question {
+    font-weight: bold;
+}
 
+/* الإجابة مخفية افتراضياً */
+.answer {
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* تظهر الإجابة لما الكارد يكون expanded */
+.Card.expanded .answer {
+    opacity: 1;
+}
+
+@media (max-width: 623px) {
+    .Card {
+        width:80%;
+    }
+}
+
+@media (max-width: 300px) {
+    .Card {
+        width: 90%;
+    }
+}
 
 

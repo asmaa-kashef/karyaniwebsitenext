@@ -1,0 +1,63 @@
+﻿.FullAboutEngineer {
+    align-items: center;
+    background-color: rgb(243, 243, 243);
+    padding: 100px;
+    text-align: center;
+}
+    .FullAboutEngineer h2 {
+    
+    font-size: 1.9rem;
+    margin-bottom: 40px;
+    color: rgb(34, 34, 34);
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    z-index: 1;
+    text-shadow: rgba(0, 0, 0, 0.15) 1px 1px 3px;
+}
+    .AboutEngineer {
+        background-color: rgb(243, 243, 243);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+.card {
+    flex: 1 1 280px;
+    max-width: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 30px;
+   
+    cursor: pointer;
+    text-align: left;
+}
+    .card:hover {
+        transform: translateY(-6px);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .text {
+    padding: 20px;
+}
+    .card h3 {
+        margin: 0px 0px 6px;
+        font-size: 1.15rem;
+        color: rgb(17, 17, 17);
+        font-weight: 600;
+    }
+    .card h4 {
+        margin: 0px 0px 10px;
+        font-size: 0.95rem;
+        color: rgb(230, 126, 34);
+        font-weight: 500;
+    }
+    .card p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: rgb(85, 85, 85);
+        margin: 0px;
+    }
+
+

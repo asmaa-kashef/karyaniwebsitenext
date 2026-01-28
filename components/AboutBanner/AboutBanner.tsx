@@ -3,10 +3,6 @@
 import styles from "./AboutBanner.module.css"; // CSS للـ Banner
 import { useLanguage } from "../../components/LanguageContext"; // عدل المسار حسب مكانك
 import Image from "next/image"; 
-
-
-
-
 const images =  "/images/background/10.webp";
 const translations = {
 
@@ -34,7 +30,7 @@ const translations = {
 
 export default function Banner() {
 
-    const { language, setLanguage } = useLanguage();
+    const { language} = useLanguage();
     const t = translations[language];
 
     return (
