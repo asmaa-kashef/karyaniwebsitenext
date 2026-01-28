@@ -32,9 +32,9 @@
     display: flex;
     flex-direction: column;
     color: white;
-    margin-top: 200px;
+    margin-top: 300px;
     z-index: 1;
-    width:60%;
+    padding:25px;
     align-items:flex-start;
 }
     .textWrapper h1 {
