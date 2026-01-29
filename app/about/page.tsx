@@ -5,7 +5,7 @@ import AboutProject from "../../components/AboutProject/AboutProject";
 import AboutProcess from "../../components/AboutProcess/AboutProcess";
 import AboutQuestion from "../../components/AboutQuestion/AboutQuestion";
 import AboutEngineer from "../../components/AboutEngineer/AboutEngineer";
-import Footer from "../../components/Footer/Footer";
+
 const AboutPage = () => {
     return (
         <>
@@ -15,7 +15,7 @@ const AboutPage = () => {
             <AboutProcess />
             <AboutQuestion />
             <AboutEngineer />
-            <Footer />
+          
         </>
     );
 };

@@ -1,0 +1,37 @@
+﻿.FullThanks
+{
+    background-color:white;
+    height:1200px;
+    display:flex;
+    justify-content:center;
+    justify-items:center;
+}
+.Thanks {
+    background-color: White;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    justify-items: center;
+    padding: 20px;
+   
+}
+    .Thanks h2 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+      
+    }
+    .Thanks p {
+        font-size: 1.5rem;
+        max-width: 600px;
+        margin-bottom: 20px;
+    }
+    .Thanks a {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #ff8a00;
+        text-decoration: none;
+    }
+    

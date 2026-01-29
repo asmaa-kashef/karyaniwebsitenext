@@ -5,9 +5,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, FormData } from "./schema"; // استيراد السكيما والنوع
 import { useLanguage } from "../LanguageContext"; // عدلي المسار حسب مشروعك
+import { useRouter } from "next/navigation";
 
 export default function OfferForm() {
     const { language } = useLanguage(); // قراءة اللغة
+    const router = useRouter();
     const {
         register,
         handleSubmit,
@@ -42,8 +44,8 @@ export default function OfferForm() {
                 body: formData.toString(),
             });
 
-            alert(language === "ar" ? "تم الإرسال بنجاح!" : "Success! Data sent to your sheet.");
-            reset();
+            reset(); // إعادة تعيين الفورم
+            router.push("/thank-you"); // التحويل للصفحة
         } catch (error) {
             alert(language === "ar" ? "حدث خطأ، حاول مرة أخرى." : "Error, please try again.");
         } finally {
@@ -78,7 +80,7 @@ export default function OfferForm() {
                 <p className={styles.phone}>+9710506607159</p>
             </div>
 
-            <div className={styles.container}>
+            <div id="offer-form" className={styles.container}>
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                     <input
                         type="text"

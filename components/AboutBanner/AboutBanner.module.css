@@ -35,7 +35,8 @@
     margin-top: 300px;
     z-index: 1;
     padding:25px;
-    align-items:flex-start;
+ 
+   
 }
     .textWrapper h1 {
         position: relative;
@@ -55,6 +56,28 @@
         font-weight: 400;
     }
 
+.linkWrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    align-content:center;
+    margin-top:100px;
+ 
+}
 
+    .linkWrapper a{
+        color: white;
+        font-size:20px;
+        text-align: center;
+        margin: 0;
+        
+    }
+    .linkWrapper a:hover{
+        color:darkorange;
+    }
 
-
+.linkWrapper p{
+    color:darkorange;
+    font-weight:700;
+}

@@ -1,7 +1,23 @@
 ﻿"use client";
 
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { useLanguage } from "../../components/LanguageContext";
+import { useRouter } from "next/navigation";
 import styles from "./ContactMap.module.css";
+
+// تعريف السكيما
+const contactSchema = z.object({
+    name: z.string().min(3, "Required"),
+    email: z.string().email("Invalid email"),
+    phone: z.string().min(8, "Required"),
+    address: z.string().min(1, "Required"),
+    service: z.string().min(1, "Required"),
+    message: z.string().min(1, "Required"),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
 
 const translations = {
     en: {
@@ -15,12 +31,13 @@ const translations = {
         servicePlaceholder: "Select Service",
         services: {
             villa: "Villa Construction",
-            interior: "Interior Finishing",
+            structure: "Structure Repair",
             maintenance: "General Maintenance",
-            aluminum: "Aluminum & Glass",
+            cladding: "Cladding",
         },
         message: "Write your message here...",
         submit: "Send Message",
+        sending: "Sending...",
     },
     ar: {
         heading: "احجز استشارتك المجانية الآن",
@@ -33,51 +50,94 @@ const translations = {
         servicePlaceholder: "اختر الخدمة",
         services: {
             villa: "بناء الفلل",
-            interior: "التشطيبات الداخلية",
+            structure: "اصلاح الهياكل",
             maintenance: "الصيانة العامة",
-            aluminum: "الألمنيوم والزجاج",
+            cladding: "واجهة التكسيه",
         },
         message: "اكتب رسالتك هنا...",
         submit: "إرسال الرسالة",
+        sending: "جارٍ الإرسال...",
     },
 };
 
 export default function ContactLocation() {
     const { language } = useLanguage();
     const t = translations[language];
+    const router = useRouter();
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log("Form submitted");
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors, isSubmitting },
+    } = useForm<ContactFormData>({
+        resolver: zodResolver(contactSchema),
+    });
+
+    const onSubmit = async (data: ContactFormData) => {
+        try {
+            const sheetURL =
+                "https://script.google.com/macros/s/AKfycbxrUcITfQZSkhsobRC6eoVgHaGaozHJPqDsOljwYvZeUC_6gN4UkoNvwCJ137uGqp3lXA/exec";
+
+            const formData = new URLSearchParams();
+            formData.append("firstname", data.name);
+            formData.append("lastname", ""); // إذا ما عندك Last Name استخدم فارغ
+            formData.append("Email", data.email);
+            formData.append("PhoneNumber", data.phone || "");
+            formData.append("Subject", data.service);
+            formData.append("Message", data.message);
+
+            await fetch(sheetURL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: formData.toString(),
+            });
+
+            reset();
+            router.push("/thank-you"); // تحويل للصفحة
+        } catch (err) {
+            alert(language === "ar" ? "حدث خطأ، حاول مرة أخرى." : "Error, please try again.");
+        }
     };
 
     return (
-        <div
-            className={styles.FullContactLocation}
-            dir={language === "ar" ? "rtl" : "ltr"}
-        >
+        <div className={styles.FullContactLocation} dir={language === "ar" ? "rtl" : "ltr"}>
             <div className={styles.Contactform}>
                 <p>{t.heading}</p>
                 <p>{t.heading2}</p>
                 <p>{t.heading3}</p>
 
-                <form onSubmit={handleSubmit} className={styles.form}>
-                    <input type="text" placeholder={t.name} required />
-                    <input type="email" placeholder={t.email} required />
-                    <input type="text" placeholder={t.phone} />
-                    <input type="text" placeholder={t.address} />
+                <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+                    <input type="text" placeholder={t.name} {...register("name")} />
+                    {errors.name && <span className={styles.errorText}>{errors.name.message}</span>}
 
-                    <select required>
+                    <input type="email" placeholder={t.email} {...register("email")} />
+                    {errors.email && <span className={styles.errorText}>{errors.email.message}</span>}
+
+                    <input type="text" placeholder={t.phone} {...register("phone")} />
+                    {errors.phone && <span className={styles.errorText}>{errors.phone.message}</span>}
+
+                    <input type="text" placeholder={t.address} {...register("address")} />
+                    {errors.address && <span className={styles.errorText}>{errors.address.message}</span>}
+
+                    <select {...register("service")}>
                         <option value="">{t.servicePlaceholder}</option>
                         <option value="villa">{t.services.villa}</option>
-                        <option value="interior">{t.services.interior}</option>
+                        <option value="structure">{t.services.structure}</option>
                         <option value="maintenance">{t.services.maintenance}</option>
-                        <option value="aluminum">{t.services.aluminum}</option>
+                        <option value="cladding">{t.services.cladding}</option>
                     </select>
+                    {errors.service && <span className={styles.errorText}>{errors.service.message}</span>}
 
-                    <textarea placeholder={t.message} />
+                    <textarea placeholder={t.message} {...register("message")} />
+                    {errors.message && <span className={styles.errorText}>{errors.message.message}</span>}
 
-                    <button type="submit">{t.submit}</button>
+                    <button type="submit" disabled={isSubmitting}>
+                        {isSubmitting ? t.sending : t.submit}
+                    </button>
                 </form>
             </div>
 

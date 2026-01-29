@@ -1,20 +1,17 @@
 ﻿.banner {
     width: 100%;
-    height: 750px; /* لضمان عدم انهيار المساحة قبل تحميل الصورة */
+    height: 750px; 
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
-   
+    align-items: center;  
 }
-
 .bannerImage {
     width: 100%;
-    height: 100%; /* ممكن تغيري الheight */
-    object-fit: cover; /* الصورة تغطي كامل البانر */
+    height: 100%; 
+    object-fit: cover; 
     transition: opacity 0.5s ease-in-out;
     position: absolute;
-
     transition: opacity 0.8s ease-in-out;
 }
 .banner::before {
@@ -35,9 +32,9 @@
     margin-top: 300px;
     z-index: 1;
     padding:25px;
-    align-items:flex-start;
+    
 }
-    .textWrapper h1 {
+.textWrapper h1 {
         position: relative;
         display: block;
         font-size: 48px;
@@ -46,7 +43,7 @@
         font-weight: 500;
         margin-bottom: 35px;
     }
-    .textWrapper p {
+.textWrapper p {
         position: relative;
         display: block;
         font-size: 24px;
@@ -55,6 +52,30 @@
         font-weight: 400;
     }
 
+.linkWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-content: center;
+    margin-top: 70px;
+  
+}
 
+.linkWrapper a {
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        margin: 0;
+    }
+
+.linkWrapper a:hover {
+            color: darkorange;
+        }
+
+.linkWrapper p {
+        color: darkorange;
+        font-weight: 700;
+    }
 
 

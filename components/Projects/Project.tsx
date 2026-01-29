@@ -115,8 +115,33 @@ export default function ProjectsSection() {
                                 <h3 className={styles.projectTitle}>{project.title[language]}</h3>
                                 <p className={styles.description}>{project.description[language]}</p>
                                 <div className={styles.btnGroup}>
-                                    <button className={styles.viewBtn}>{t.viewBtn}</button>
-                                    <button className={styles.quoteBtn}>{t.quoteBtn}</button>
+                                    <button
+                                        className={styles.viewBtn}
+                                        onClick={() => {
+                                            const project = projects[activeIndex];
+                                            if (project.mediaType === "youtube") {
+                                                // فتح الفيديو في تاب جديد
+                                                window.open(`https://www.youtube.com/watch?v=${project.videoId}`, "_blank");
+                                            } else {
+                                                // لو صورة أو نوع آخر ممكن تعمل حاجة تانية أو لا تعمل شيء
+                                                console.log("No video to view");
+                                            }
+                                        }}
+                                    >
+                                        {t.viewBtn}
+                                    </button>
+
+                                    <button
+                                        className={styles.quoteBtn}
+                                        onClick={() => {
+                                            const form = document.getElementById("offer-form");
+                                            if (form) {
+                                                form.scrollIntoView({ behavior: "smooth" });
+                                            }
+                                        }}
+                                    >
+                                        {t.quoteBtn}
+                                    </button>
                                 </div>
                             </div>
                         </div>

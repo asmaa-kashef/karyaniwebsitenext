@@ -23,6 +23,6 @@ export const formSchema = z.object({
 
     Message: z.string()
         .min(1, "Message is required")
-        .min(10, "Message must be at least 10 characters"),
+        .min(5, "Message must be at least 10 characters"),
 });
 export type FormData = z.infer<typeof formSchema>;

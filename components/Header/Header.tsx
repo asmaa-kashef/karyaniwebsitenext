@@ -39,7 +39,7 @@ export default function Header() {
                     </p>
                     <p className={styles.contactItem}>
                         <img src="/icons/phone.webp" alt={language === "ar" ? "الهاتف" : "Phone"} width={20} height={16} />
-                        +971-050-5597407
+                        +971-050-6607159
                     </p>
                 </div>
 
