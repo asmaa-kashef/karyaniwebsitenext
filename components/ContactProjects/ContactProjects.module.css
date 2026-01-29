@@ -1,0 +1,76 @@
+﻿.FullAboutProject {
+    align-items: center;
+    background-color: rgb(243, 243, 243);
+    padding: 20px;
+    text-align: center;
+}
+    .FullAboutProject h2 {
+        font-size: 1.9rem;
+        margin-bottom: 40px;
+        color: rgb(34, 34, 34);
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+        z-index: 1;
+        text-shadow: rgba(0, 0, 0, 0.15) 1px 1px 3px;
+    }
+.AboutProject {
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card {
+    background: rgb(255, 152, 0);
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 20px;
+    padding: 25px;
+    max-width: 350px;
+    text-align: left;
+    transition: transform 0.3s;
+    color: rgb(255, 255, 255);
+    flex: 1 1 300px;
+    cursor: pointer;
+    transform: translateY(0px);
+    text-align:center;
+
+}
+    .card:hover {
+        transform: translateY(-6px);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .text {
+    padding: 20px;
+}
+    .card h3 {
+        margin: 0px 0px 6px;
+        font-size: 1.15rem;
+        color: rgb(17, 17, 17);
+        font-weight: 600;
+    }
+.card h3 {
+    color: white;
+    font-weight: 700;
+}
+.card p {
+   
+    font-weight: 500;
+    margin-bottom:20px;
+}
+
+.btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: rgb(243, 243, 243);
+    color: rgb(255, 122, 0);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 6px 18px;
+    transition: 0.3s;
+    text-align: center;
+    line-height: 1.2;
+}

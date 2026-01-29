@@ -8,7 +8,7 @@ import Blog from "../components/Blog/Blog";
 import Form from "../components/Form/Form";
 import KaryaniChoose from "../components/KaryaniChoose/KaryaniChoose";
 import Maintenance from "../components/Maintenance/Maintenance";
-import Footer from "../components/Footer/Footer";
+
 import { sanityService } from "../src/lib/sanity.service";
 export default async function Home() {
     const posts = await sanityService.getAllPosts();
@@ -24,7 +24,7 @@ export default async function Home() {
             <SelectedProjects />
             <Maintenance />
             <Blog posts={posts} />
-            <Footer />
+          
             
             
             {/* أي components تانية */}

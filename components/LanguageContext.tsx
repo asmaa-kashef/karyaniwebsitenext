@@ -2,7 +2,7 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
 interface LanguageContextType {
-    language: "en" | "ar";           // ✅ النوع مضبوط
+    language: "en" | "ar";          
     setLanguage: (lang: "en" | "ar") => void;
 }
 

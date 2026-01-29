@@ -1,9 +1,7 @@
 ﻿"use client";
-
 import Image from "next/image";
 import styles from "./AboutProject.module.css";
 import { useLanguage } from "../../components/LanguageContext"; // عدل المسار حسب مكانك
-
 import Link from "next/link";
 const translations = {
 
